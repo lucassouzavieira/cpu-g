@@ -22,6 +22,7 @@
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import gi
+
 try:
     gi.require_version('Gdk', '3.0')
 except Exception as e:
@@ -93,8 +94,8 @@ class Investigator():
                 # LXDE if using LXDE.
                 # There is no guarantee that they will not do the same with
                 # the other desktop environments.
-                elif "xfce" in desktop_session or\
-                        desktop_session.startswith("xubuntu"):
+                elif "xfce" in desktop_session or \
+                    desktop_session.startswith("xubuntu"):
                     return "xfce4"
                 elif desktop_session.startswith("ubuntu"):
                     return "unity"
@@ -110,7 +111,7 @@ class Investigator():
                 return "kde"
             elif os.environ.get('GNOME_DESKTOP_SESSION_ID'):
                 if "deprecated" not in os.environ.get(
-                        'GNOME_DESKTOP_SESSION_ID'):
+                    'GNOME_DESKTOP_SESSION_ID'):
                     return "gnome2"
             # From http://ubuntuforums.org/showthread.php?t=652320
             elif self.is_running("xfce-mcs-manage"):
@@ -137,7 +138,7 @@ class Investigator():
             print(e)
             return False
         for x in s.stdout:
-            if re.search(process, x.decode('utf-8')):
+            if re.search(process, x):
                 return True
         return False
 
@@ -149,15 +150,15 @@ class Investigator():
         elif vendor == 'Intel':
             label = 'intel.png'
         # AMDs
-        if re.match("AMD Athlon\(tm\) 64 X2.*", model)\
-                or re.match("AMD Athlon\(tm\) X2.*", model):
+        if re.match("AMD Athlon\(tm\) 64 X2.*", model) \
+            or re.match("AMD Athlon\(tm\) X2.*", model):
             label = 'AMD-AthlonX2.png'
         elif re.match("AMD Sempron\(tm\).*", model):
             label = 'AMD-Sempron.png'
         elif re.match("Mobile AMD Sempron\(tm\).*", model):
             label = 'AMD-Sempron-Mobile.png'
-        elif re.match("Dual-Core AMD Opteron\(tm\).*", model)\
-                or re.match("AMD Opteron\(tm\).*", model):
+        elif re.match("Dual-Core AMD Opteron\(tm\).*", model) \
+            or re.match("AMD Opteron\(tm\).*", model):
             label = 'AMD-Opteron.png'
         elif re.match("AMD Athlon\(tm\) XP.*", model):
             label = 'AMD-AthlonXP.png'
@@ -291,20 +292,13 @@ class Investigator():
             typepath = path + 'index%i/type' % (index)
             size = path + 'index%i/size' % (index)
             # os.chdir(newpath)
-            if self.readfile(levelpath).strip() == str(level) and\
-                    self.readfile(typepath).strip() == kind:
+            if self.readfile(levelpath).strip() == str(level) and \
+                self.readfile(typepath).strip() == kind:
                 return self.readfile(size).strip()
         return _('N/A')
 
     def distro(self):
         return get_distro()
-        try:
-            values = platform.linux_distribution()
-        except AttributeError:
-            values = platform.dist()
-        if len(values) == 3:
-            return "%s %s %s" % (values[0], values[1], values[2])
-        return self.readfile('/etc/issue').strip()
 
     def get_distro_logo(self):
         distro = self.distro().split()[0].lower() + '.png'
@@ -331,25 +325,25 @@ class Investigator():
 
     def raminfo(self):
         mem = psutil.virtual_memory()
-        values = {'total': mem.total/1024/1024,
-                  'available': mem.available/1024/1024,
+        values = {'total': mem.total / 1024 / 1024,
+                  'available': mem.available / 1024 / 1024,
                   'percent': mem.percent,
-                  'used': mem.used/1024/1024,
-                  'free': mem.free/1024/1024,
-                  'active': mem.active/1024/1024,
-                  'inactive': mem.inactive/1024/1024,
-                  'buffers': mem.buffers/1024/1024,
-                  'cached': mem.cached/1024/1024,
+                  'used': mem.used / 1024 / 1024,
+                  'free': mem.free / 1024 / 1024,
+                  'active': mem.active / 1024 / 1024,
+                  'inactive': mem.inactive / 1024 / 1024,
+                  'buffers': mem.buffers / 1024 / 1024,
+                  'cached': mem.cached / 1024 / 1024,
                   }
         return values
 
     def swapinfo(self):
         mem = psutil.swap_memory()
-        values = {'total': mem.total/1024/1024,
-                  'used': mem.used/1024/1024,
-                  'free': mem.free/1024/1024,
-                  'sin': mem.sin/1024/1024,
-                  'sout': mem.sout/1024/1024,
+        values = {'total': mem.total / 1024 / 1024,
+                  'used': mem.used / 1024 / 1024,
+                  'free': mem.free / 1024 / 1024,
+                  'sin': mem.sin / 1024 / 1024,
+                  'sout': mem.sout / 1024 / 1024,
                   }
         return values
 
@@ -424,6 +418,7 @@ class Investigator():
             if vga is not None:
                 return vga
             return _('N/A')
+
     # End Graphic Tab
 
     def execute(self, command, parser=None):
@@ -440,6 +435,7 @@ class Investigator():
             else:
                 result = None
         return result
+
 
 if __name__ == '__main__':
     print(psutil.cpu_times())
