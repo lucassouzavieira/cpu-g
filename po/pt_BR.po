@@ -1,17 +1,17 @@
-# Spanish translations for cpu-g package.
-# Copyright (C) 2019 THE PACKAGE'S COPYRIGHT HOLDER
+# Portuguese (Brazil) translations for cpu-g package.
+# Copyright (C) 2020 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the cpu-g package.
-# Lorenzo <lorenzo.carbonell.cerezo@gmail.com>, 2019.
-#
+# Lucas S. Vieira <lucassouzavieiraengcomp@gmail.com>, 2020.
+
 msgid ""
 msgstr ""
 "Project-Id-Version: cpu-g - 0.15.2-1ubuntu0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-02-20 06:33+0100\n"
-"PO-Revision-Date: 2019-02-01 20:59+0100\n"
-"Last-Translator: Lorenzo <lorenzo.carbonell.cerezo@gmail.com>\n"
-"Language-Team: Spanish\n"
-"Language: es\n"
+"POT-Creation-Date: 2020-06-08 11:23-0300\n"
+"PO-Revision-Date: 2020-06-08 18:49-0300\n"
+"Last-Translator: Lucas S. Vieira <lucassouzavieiraengcomp@gmail.com>\n"
+"Language-Team: Portuguese (Brazil)\n"
+"Language: pt_BR\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -135,9 +135,9 @@ msgid ""
 "processes that request more memory in bytes; this is calculated by summing "
 "different memory values (Mb)"
 msgstr ""
-"La cantida de memoria disponible actual que puede ser ofrecida de forma "
-"instantánea a los procesos que necesitan mas memoria en bytes; esto se "
-"calcula sumando los diferentes valores de memoria (Mb)"
+"A quantidade real de memória disponível que pode ser fornecida instantaneamente "
+"a processos que solicitam mais memória em bytes; "
+"isso é calculado somando diferentes valores de memória (Mb)"
 
 #: src/cpug.py:368 src/cpug.py:478
 msgid "Used"
@@ -148,8 +148,8 @@ msgid ""
 "Memory used, calculated differently depending on the platform and designed "
 "for informational purposes only (Mb)"
 msgstr ""
-"Memoria usada, caluculada de forma diferente en función de la plataforma y "
-"pensada solo con propósitos informativos (Mb)"
+"Memória usada, calculada de forma diferente dependendo da plataforma e projetada "
+"apenas para fins informativos (Mb)"
 
 #: src/cpug.py:389 src/cpug.py:498
 msgid "Free"
@@ -157,7 +157,7 @@ msgstr "Livre"
 
 #: src/cpug.py:396
 msgid "Memory not being used at all (zeroed) that is readily available (Mb)"
-msgstr "Memoria que no se está utilizando en absotulo (Mb)"
+msgstr "Memória não em uso (zerada) e que está prontamente disponível (Mb)"
 
 #: src/cpug.py:410
 msgid "Active"
@@ -165,7 +165,7 @@ msgstr "Ativa"
 
 #: src/cpug.py:417
 msgid "Memory currently in use or very recently used, and so it is in RAM (Mb)"
-msgstr "Memoria que está en uso o ha sido usada recientemente, así es RAM (Mb)"
+msgstr "Memoria atualmente em uso ou usada muito recentemente, e assim está na RAM (Mb)"
 
 #: src/cpug.py:423
 msgid "Inactive"
@@ -173,11 +173,11 @@ msgstr "Inativa"
 
 #: src/cpug.py:430
 msgid "Memory that is marked as not used."
-msgstr "Memoria que está marcada como noutilizada."
+msgstr "Memoria que está marcada como não utilizada."
 
 #: src/cpug.py:436
 msgid "Buffers"
-msgstr "Memoria intermedia"
+msgstr "Buffers"
 
 #: src/cpug.py:443
 msgid "Ccache for things like file system metadata. (Mb)"
@@ -201,11 +201,11 @@ msgstr "Memoria física total disponible en Mb."
 
 #: src/cpug.py:485
 msgid "Used swap memory in Mb"
-msgstr "Memoria de intercambio utilizada en Mb"
+msgstr "Memoria Swap utilizada en Mb"
 
 #: src/cpug.py:505
 msgid "Free swap memory in Mb"
-msgstr "Memoria de intercambio libre en Mb"
+msgstr "Memória Swap livre em Mb"
 
 #: src/cpug.py:518
 msgid "Sin"
@@ -213,7 +213,7 @@ msgstr "Entrada"
 
 #: src/cpug.py:525
 msgid "The number of Mb the system has swapped in from disk (cumulative)"
-msgstr "Número de Mb del sistema que ha pasado a la memoria de intercambio"
+msgstr "O número de Mb que o sistema armazenou no disco (cumulativo)"
 
 #: src/cpug.py:531
 msgid "Sout"
@@ -221,7 +221,7 @@ msgstr "Saída"
 
 #: src/cpug.py:538
 msgid "The number of Mb the system has swapped out from disk (cumulative)"
-msgstr "Número de Mb del sistema que ha salido de la memoria de intercambio"
+msgstr "O número de Mb que o sistema acessou no disco (cumulativo)"
 
 #: src/cpug.py:547
 msgid "System"
