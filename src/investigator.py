@@ -300,6 +300,11 @@ class Investigator():
     def distro(self):
         return get_distro()
 
+    def get_lspci_location(self):
+        if 'fedora' in self.distro().lower():
+            return "/usr/sbin/lspci"
+        return "/usr/bin/lspci"
+
     def get_distro_logo(self):
         distro = self.distro().split()[0].lower() + '.png'
         logo = os.path.join(comun.DISTROSDIR, distro)
@@ -378,7 +383,7 @@ class Investigator():
         return "%i days, %i hours, %i minutes" % (days, hours, minutes)
 
     def get_graphic_card_logo(self):
-        card_logo = self.execute('/usr/bin/lspci', 'VGA(.*)')
+        card_logo = self.execute(self.get_lspci_location(), 'VGA(.*)')
         if card_logo is not None:
             # Intel
             if re.findall("Intel\s*", card_logo):
@@ -401,7 +406,7 @@ class Investigator():
     # Graphic tab
     def open_gl(self, var):
         open_gl_ = self.execute('/usr/bin/glxinfo')
-        vga = self.execute('/usr/bin/lspci', 'VGA[^:]*:(.*)')
+        vga = self.execute(self.get_lspci_location(), 'VGA[^:]*:(.*)')
         if var == 'vendor':
             if open_gl_ != '':
                 return re.findall("OpenGL vendor string: (.*)", open_gl_)[0]
